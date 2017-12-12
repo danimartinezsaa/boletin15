@@ -15,6 +15,7 @@ public class Notas{
     private float escrita1,escrita2,practica,boletin,ce,p;
     private final int boletines=17;
     private byte cb;
+
     public Notas(){
     }
 
@@ -51,24 +52,43 @@ public class Notas{
     }
     
     public void calculoEscritas(){
-        do{
+        boolean fl=false,fl1=false;
+        do{ 
+            if(fl==true){
+                JOptionPane.showMessageDialog(null,"Rango no válido.");
+            }
             escrita1=Float.parseFloat(JOptionPane.showInputDialog("Inserte la nota escrita 1:"));
+            fl=true;
         }while(escrita1>10 || escrita1<0);
         do{
+            if(fl1==true){
+                JOptionPane.showMessageDialog(null,"Rango no válido.");
+            }
             escrita2=Float.parseFloat(JOptionPane.showInputDialog("Inserte la nota escrita 2:"));
+            fl=true;
         }while(escrita2>10 || escrita2<0);
         ce=(escrita1+escrita2)/2;
     }
     
     public void calculoPracticas(){
+        boolean fl=false;
         do{
+            if(fl==true){
+                JOptionPane.showMessageDialog(null,"Rango no válido.");
+            }
             p=Float.parseFloat(JOptionPane.showInputDialog("Inserte la nota práctica: "));
+            fl=true;
         }while(p>10 || p<0);
     }
     
     public void calculoBoletines(){
+        boolean fl=false;
         do{
+            if(fl==true){
+                JOptionPane.showMessageDialog(null,"Rango no válido.");
+            }
             boletin=Float.parseFloat(JOptionPane.showInputDialog("Inserte número de boletínes:"));
+            fl=true;
         }while(boletin>boletines || boletin<0);
         boletin=boletin/boletines*100;
         if(boletin<70) cb=0;
